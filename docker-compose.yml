@@ -1,4 +1,3 @@
-
 services:
   nginx:
     image: nginx:alpine
@@ -60,4 +59,3 @@ services:
 
 networks:
     basenet:
-        name: mynetwork
