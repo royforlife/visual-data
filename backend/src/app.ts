@@ -6,7 +6,7 @@ const port = process.env.PORT || 3000;
 
 app.use(cors());
 
-app.use("/", async (req: Request, res: Response, next: NextFunction) => {
+app.use("/api", async (req: Request, res: Response, next: NextFunction) => {
     try {
         const result = await dbSession.run(
         "MATCH (n) WHERE NOT (:Node)<-[:CHILD_OF]-(n) " +

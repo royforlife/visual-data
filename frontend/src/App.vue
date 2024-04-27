@@ -6,7 +6,6 @@
 
 <script>
 import TreeChart from './components/TreeChart.vue';
-import url from './url';
 
 export default {
   name: 'App',
@@ -24,7 +23,7 @@ export default {
   methods: {
     async fetchTreeData() {
       try {
-        const response = await fetch(url);
+        const response = await fetch('/api');
         if (!response.ok) throw new Error('Error fetching tree data');
         const data = await response.json();
         this.treeData = this.processData(data);
