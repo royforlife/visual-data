@@ -1,4 +1,3 @@
-version: '3.8'
 
 services:
   nginx:
@@ -19,7 +18,6 @@ services:
       dockerfile: Dockerfile
     networks:
         - basenet
-
     depends_on:
       - backend
 

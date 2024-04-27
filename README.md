@@ -43,6 +43,7 @@ npm start
 ```bash
 cd frontend
 npm install
+export VUE_APP_URL=http://localhost:3000/api
 npm run serve
 ```
 
