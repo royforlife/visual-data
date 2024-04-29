@@ -1,0 +1,31 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: backend
+spec:
+  selector:
+    matchLabels:
+      app: backend
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: backend
+    spec:
+      containers:
+        - name: backend
+          image: roylife/visual-data-backend:v1
+          ports:
+            - containerPort: 3000
+          env:
+            - name: NEO4J_URI
+              value: "bolt://neo4j:7687"
+            - name: NEO4J_USER
+              value: "neo4j"
+            - name: NEO4J_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  name: neo4j-secret
+                  key: password
+            - name: PORT
+              value: "3000"
